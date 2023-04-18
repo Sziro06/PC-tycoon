@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hüseyin</title>
+
+    <style>
+        body{
+            background-color: papayawhip;
+        }
+
+        h1{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 72px;
+        }
+
+        button{
+            font-size: 30px;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Hüseyins PC-er</h1>
+    <h2>The best PC in the world</h2>
+
+
+    <h3 id="viserAntallPenger">Du har ingen penger fattig.</h3>
+
+    <h3 id="viserAntallPCSkjermer">Du har ingen PC skjermer enda.</h3>
+
+    <h3 id="viserAntallkeyboard">Du har ingen keyboard</h3>
+
+    <!-- skjern button -->
+
+    <button onclick="lagSkjerm()" >Lag en PC skjerm.</button>
+
+    <button onclick="selgSkjerm()">Selg en skjerm.</button>
+
+    <!-- keyboard button -->
+
+    <button onclick="lagKeyboard()">Lag en keyboard.</button>
+
+    <button onclick="selgKeyboard()">Selg en keyboard.</button>
+    <br>
+
+    <!-- gaver hvis noen kjøper mye så får de mus. -->
+
+    <button id="mus" style="display:none">Du kan få mus her</button>
+
+
+    <!-- Dette er JavaScript -->
+
+    <script>
+        let antallPCSkjerm = 0;
+        let antallPenger = 0;
+        let antallKeyboard = 0;
+        let antallClick = 0;
+
+        function lagSkjerm() {
+            antallPCSkjerm ++;
+            if(antallPCSkjerm == 1){
+            document.getElementById("viserAntallPCSkjermer").innerHTML = "Du har " + antallPCSkjerm + " PC skjerm."
+            }else
+            document.getElementById("viserAntallPCSkjermer").innerHTML = "Du har " + antallPCSkjerm + " PC skjermer."
+
+        }
+
+        function selgSkjerm(){
+            if(antallClick >= 0){
+            antallClick ++;
+            }
+            if(antallPCSkjerm >= 1){
+            antallPenger = antallPenger + 1000;
+            antallPCSkjerm = antallPCSkjerm - 1;
+            document.getElementById("viserAntallPCSkjermer").innerHTML = "Du har " + antallPCSkjerm + " PC skjermer."
+            document.getElementById("viserAntallPenger").innerHTML = "Du har " + antallPenger + " kroner."
+            }
+            if(antallClick === 10){
+                document.getElementById("mus").style.display = "block"
+            }
+        }
+
+        function lagKeyboard() {
+            antallKeyboard ++;
+            if(antallKeyboard == 1){
+            document.getElementById("viserAntallkeyboard").innerHTML = "Du har " + antallKeyboard + " keyboard."
+            }else
+            document.getElementById("viserAntallkeyboard").innerHTML = "Du har " + antallKeyboard + " keyboarder."
+        }
+
+        function selgKeyboard(){
+            if(antallKeyboard >= 1){
+            antallPenger = antallPenger + 300;
+            antallKeyboard = antallKeyboard - 1;
+            document.getElementById("viserAntallkeyboard").innerHTML = "Du har " + antallKeyboard + " keyboarder."
+            document.getElementById("viserAntallPenger").innerHTML = "Du har " + antallPenger + " kroner."
+            }  
+        }
+
+
+
+    </script>
+
+
+</body>
+</html>
